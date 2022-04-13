@@ -9,17 +9,10 @@ NUMBER_2 = 1
 
 
 # Fixtures
-
 @pytest.fixture
 def calculator():
     return Calculator()
 
-
-# Helpers
-
-
-
-# Test Cases
 
 @pytest.mark.parametrize("a,expected", [
     (NUMBER_1, math.sqrt(NUMBER_1)),
@@ -59,9 +52,7 @@ def test_pow(calculator,a,b,expected):
     assert expected == answer
 
 
-# def test_divide_by_zero(calculator):
-#     with pytest.raises(ZeroDivisionError) as e:
-#         calculator.divide(NUMBER_1, 0)
-#     assert "division by zero" in str(e.value)
-
+def test_baseScreen(calculator):
+    calculator.BaseScreen()
+    assert True
 

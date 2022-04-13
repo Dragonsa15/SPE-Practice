@@ -11,7 +11,8 @@ if platform == "linux" or platform == "linux2":
     clear_cmd = "clear"
 elif platform == "win32":
     clear_cmd = "cls"
-print(clear_cmd)
+
+# print(clear_cmd)
 
 class Calculator:
     def __init__(self):
