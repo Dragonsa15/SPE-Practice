@@ -1,12 +1,12 @@
 pipeline {
     agent { docker { image 'python:2-alpine' } }
     stages {
-        stage("Virtual Env Setup") {
-            steps {
-                sh "python -m venv CalcEnv"
-                sh "source CalcEnv/bin/activate"
-            }
-        }
+        // stage("Virtual Env Setup") {
+        //     steps {
+        //         sh "python -m venv CalcEnv"
+        //         sh "source CalcEnv/bin/activate"
+        //     }
+        // }
         // stage("Requirement Installation") {
         //     steps {
         //         sh 'pip install --upgrade pip'
