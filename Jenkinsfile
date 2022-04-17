@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo "Testing  . . ."
                 withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh 'pytest CalcTest.py -s \n\n\n\n\n'
+                    sh 'python -m pytest CalcTest.py -s \n\n\n\n\n'
                 }
                 
             }
