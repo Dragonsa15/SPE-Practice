@@ -1,10 +1,17 @@
 pipeline {
     agent { docker { image 'python:3.10.1-alpine' } }
     stages {
+        stage("Virtual Env Setup") {
+            steps {
+                sh "python3 -m venv CalcEnv"
+                sh "source CalcEnv/Scripts/activate"
+            }
+        }
         stage("Requirement Installation") {
             steps {
                 sh 'pip3 install -r requirements.txt'
-            }
+                
+            }  
         }
         stage('test') {
             // agent {
