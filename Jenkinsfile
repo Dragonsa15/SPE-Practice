@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'python:3.10.1-alpine' } }
+    agent { docker { image 'python:2-alpine' } }
     stages {
         stage("Virtual Env Setup") {
             steps {
-                sh "python3 -m venv CalcEnv"
+                sh "python -m venv CalcEnv"
                 sh "source CalcEnv/bin/activate"
             }
         }
