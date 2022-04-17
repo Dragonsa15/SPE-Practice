@@ -10,7 +10,7 @@ pipeline {
         stage("Requirement Installation") {
             steps {
                 sh 'pip3 install --upgrade pip'
-                sh 'pip3 install -r requirements.txt'
+                sh 'python -m pip install -r requirements.txt'
                 
             }  
         }
@@ -24,20 +24,7 @@ pipeline {
             //     }
             // }
             steps {
-                sh 'pytest CalcTest.py
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                '
+                sh 'pytest CalcTest.py -s \n\n\n\n\n'
             }
         }
     }
