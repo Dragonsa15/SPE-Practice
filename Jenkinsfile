@@ -9,6 +9,7 @@ pipeline {
         }
         stage("Requirement Installation") {
             steps {
+                sh 'sudo pip install --upgrade pip'
                 sh 'pip3 install -r requirements.txt'
                 
             }  
