@@ -26,7 +26,7 @@ pipeline {
         }
         stage("Ansible Connection") {
             steps {
-                ansiblePlaybook colorized: true, disableHostKeyChecking: true, installation: "Ansible", inventory: 'Inv.inv',playbook:'Playbook.yml'
+                ansiblePlaybook colorized: true, disableHostKeyChecking: true, installation: "Ansible", inventory: 'ansible/inventory.inv',playbook:'ansible/deploy.yml'
             }
         }
         
