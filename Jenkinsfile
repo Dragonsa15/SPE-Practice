@@ -19,5 +19,10 @@ pipeline {
                 
             }
         }
+        stage("Docker Build") {
+            steps {
+                sh "docker build -t saksham/SPE-Calc ."
+            }
+        }
     }
 }
