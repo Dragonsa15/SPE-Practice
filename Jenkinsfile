@@ -4,7 +4,7 @@ pipeline {
         stage("Virtual Env Setup") {
             steps {
                 sh "python3 -m venv CalcEnv"
-                sh "source CalcEnv/Scripts/activate"
+                sh "source CalcEnv/bin/activate"
             }
         }
         stage("Requirement Installation") {
