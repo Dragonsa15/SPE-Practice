@@ -1,17 +1,11 @@
 pipeline {
-    agent { docker { image 'python:3-alpine' } }
+    agent { docker { image 'python:3' } }
     stages {
-        stage("Virtual Env Setup") {
-            steps {
-                sh "python -m venv CalcEnv"
-                sh "source CalcEnv/bin/activate"
-            }
-        }
         stage("Requirement Installation") {
-            steps {
-                sh 'pip3 install --upgrade pip'
-                sh 'sudo python -m pip install -r requirements.txt'
-                
+            echo "Building... "
+            withEnv(["HOME=${env.WORKSPACE}"]) {
+                sh '/usr/local/bin/python -m pip install --upgrade pip'
+                sh 'pip install -r requirements.txt'
             }  
         }
         stage('test') {
@@ -24,7 +18,11 @@ pipeline {
             //     }
             // }
             steps {
-                sh 'pytest CalcTest.py -s \n\n\n\n\n'
+                echo "Testing  . . ."
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'pytest CalcTest.py -s \n\n\n\n\n'
+                }
+                
             }
         }
     }
