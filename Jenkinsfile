@@ -1,5 +1,7 @@
 pipeline {
-    agent { docker { image 'python:2-alpine' } }
+    agent { 
+        docker { image 'python:2-alpine' } 
+    }
     stages {
         // stage("Virtual Env Setup") {
         //     steps {
@@ -15,14 +17,14 @@ pipeline {
         //     }  
         // }
         stage('test') {
-            agent {
-                docker {
-                    //This image parameter downloads the qnib:pytest Docker image and runs this image as a
-                    //separate container. The pytest container becomes the agent that Jenkins uses to run the Test
-                    //stage of your Pipeline project.
-                    image 'qnib/pytest'
-                }
-            }
+            // agent {
+            //     docker {
+            //         //This image parameter downloads the qnib:pytest Docker image and runs this image as a
+            //         //separate container. The pytest container becomes the agent that Jenkins uses to run the Test
+            //         //stage of your Pipeline project.
+            //         image 'qnib/pytest'
+            //     }
+            // }
             steps {
                 sh 'pytest CalcTest.py'
             }
