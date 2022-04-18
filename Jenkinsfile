@@ -1,4 +1,11 @@
 pipeline {
+    environment {
+        imagename = "saksham1508/calculator"
+        registryCredential = ""
+        dockerImage = ''
+    }
+
+
     agent { docker { image 'python:3' } }
     stages {
         stage("Requirements") {
@@ -28,6 +35,20 @@ pipeline {
                     }
             }
         }
+        stage('Docker Image push')
+        {
+            agent any
+            steps
+               {
+                script
+                    {
+                    docker.withRegistry('', registryCredential ){
+                    dockerImage.push()
+                    } 
+                }
+                }
+        }
+
         stage("Ansible Connection") {
             steps {
                 ansiblePlaybook colorized: true, disableHostKeyChecking: true, installation: "Ansible", inventory: 'ansible/inventory.inv',playbook:'ansible/deploy.yml'
