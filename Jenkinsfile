@@ -21,7 +21,8 @@ pipeline {
         }
         stage("Docker Build") {
             steps {
-                sh "docker build -t saksham/calculator ."
+                sh "pip3 install docker"
+                sh "docker build -t saksham1508/calculator ."
             }
         }
         stage("Ansible Connection") {
