@@ -14,7 +14,6 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -43,6 +42,15 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/calculator:latest
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/ansible
+      env:
+        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         
         
         

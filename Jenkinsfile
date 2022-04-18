@@ -1,7 +1,7 @@
 pipeline {
     agent { docker { image 'python:3' } }
     stages {
-        stage("Requirement Installation") {
+        stage("Requirements") {
             steps {
                 echo "Building... "
                 withEnv(["HOME=${env.WORKSPACE}"]) {
@@ -10,7 +10,7 @@ pipeline {
                 }
             }
         }
-        stage('test') {
+        stage('Static Testing') {
             steps {
                 echo "Testing  . . ."
                 withEnv(["HOME=${env.WORKSPACE}"]) {
@@ -21,8 +21,17 @@ pipeline {
         }
         stage("Docker Build") {
             steps {
-                sh "docker build -t saksham/calculator ."
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh "pip install docker"
+                    sh "docker build -t saksham1508/calculator ."
+                }
             }
         }
+        stage("Ansible Connection") {
+            steps {
+                ansiblePlaybook colorized: true, disableHostKeyChecking: true, installation: "Ansible", inventory: 'ansible/inventory.inv',playbook:'ansible/deploy.yml'
+            }
+        }
+        
     }
 }
