@@ -9,7 +9,7 @@
       shell: docker rm -f calculator-container
     - name: remove docker images
       shell: docker image rm -f saksham1508/calculator:latest
-    - name: Pull saksham/calculator
+    - name: Pull saksham1508/calculator
       docker_image:
         name: saksham1508/calculator
         source: pull
