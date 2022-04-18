@@ -1,7 +1,7 @@
 pipeline {
     environment {
         imagename = "saksham1508/calculator"
-        registryCredential = ""
+        registryCredential = "sakshamDockerHub"
         dockerImage = ''
     }
 
