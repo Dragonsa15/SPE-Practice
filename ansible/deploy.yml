@@ -6,8 +6,6 @@
     - name: remove docker images
       shell: docker image rm -f saksham1508/calculator:latest
     - name: Pull saksham1508/calculator
-      docker_image:
-        name: saksham1508/calculator
-        source: pull
+      shell: docker pull saksham1508/calculator
     - name: create docker image
       shell: docker run -it saksham1508/calculator:latest
