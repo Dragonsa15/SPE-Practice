@@ -8,10 +8,10 @@
     - name: remove stopped container
       shell: docker rm -f calculator-container
     - name: remove docker images
-      shell: docker image rm -f saksham/calculator:latest
+      shell: docker image rm -f saksham1508/calculator:latest
     - name: Pull saksham/calculator
       docker_image:
-        name: saksham/calculator
+        name: saksham1508/calculator
         source: pull
     - name: create docker image
-      shell: docker run -it saksham/calculator:latest
+      shell: docker run -it saksham1508/calculator:latest
