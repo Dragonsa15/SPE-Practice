@@ -21,7 +21,7 @@ pipeline {
         }
         stage("Docker Build") {
             steps {
-                sh "pip3 install docker"
+                sh "pip install docker"
                 sh "docker build -t saksham1508/calculator ."
             }
         }
