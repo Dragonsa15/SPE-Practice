@@ -21,8 +21,10 @@ pipeline {
         }
         stage("Docker Build") {
             steps {
-                sh "pip install docker"
-                sh "docker build -t saksham1508/calculator ."
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh "pip install docker"
+                    sh "docker build -t saksham1508/calculator ."
+                }
             }
         }
         stage("Ansible Connection") {
