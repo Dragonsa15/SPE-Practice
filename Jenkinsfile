@@ -6,19 +6,19 @@ pipeline {
     }
 
 
-    agent any
+    agent { docker { image 'python:3' } }
     stages {
         stage("Requirements") {
             steps {
                 echo "Building... "
-                sh 'pip install -r requirements.txt'
+                sh '/usr/bin/python3 -m pip install -r requirements.txt'
                 
             }
         }
         stage('Static Testing') {
             steps {
                 echo "Testing  . . ."
-                sh '/usr/bin/python -m pytest CalcTest.py -s'
+                sh '/usr/bin/python3 -m pytest CalcTest.py -s'
             }
         }
         stage("Docker Build") {
