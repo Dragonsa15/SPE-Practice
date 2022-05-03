@@ -11,14 +11,14 @@ pipeline {
         stage("Requirements") {
             steps {
                 echo "Building... "
-                sh '/usr/bin/python3 -m pip install -r requirements.txt'
+                sh '/usr/bin/python -m pip install -r requirements.txt'
                 
             }
         }
         stage('Static Testing') {
             steps {
                 echo "Testing  . . ."
-                sh '/usr/bin/python3 -m pytest CalcTest.py -s'
+                sh '/usr/bin/python -m pytest CalcTest.py -s'
             }
         }
         stage("Docker Build") {
