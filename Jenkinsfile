@@ -11,7 +11,7 @@ pipeline {
         stage("Requirements") {
             steps {
                 echo "Building... "
-                sh '/usr/bin/python3 -m pip install -r requirements.txt'
+                sh '/usr/bin/python3 -m pip3 install -r requirements.txt'
                 
             }
         }
