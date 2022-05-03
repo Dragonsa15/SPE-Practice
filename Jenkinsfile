@@ -13,7 +13,7 @@ pipeline {
                 echo "Building... "
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh '/usr/local/bin/python -m pip install --upgrade pip'
-                    sh 'pip install -r requirements.txt'
+                    sh '/usr/local/bin/python -m pip install -r requirements.txt'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo "Testing  . . ."
                 withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh 'python -m pytest CalcTest.py -s \n\n\n\n\n'
+                    sh '/usr/local/bin/python -m pytest CalcTest.py -s \n\n\n\n\n'
                 }
                 
             }

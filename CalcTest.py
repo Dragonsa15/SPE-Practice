@@ -3,6 +3,7 @@ import pytest
 from Calc import Calculator
 import math
 # "Constants"
+# Testing code for calculator Class
 
 NUMBER_1 = 16
 NUMBER_2 = 1

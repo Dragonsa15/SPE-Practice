@@ -22,8 +22,8 @@ elif platform == "win32":
 
 class Calculator:
     def __init__(self):
-        self.name = "Sceintific Calculator"
-        logging.info(" [" + self.name + "]" + " Created a Calculator ")
+        self.name = "Scientific Calculator"
+        logging.info(" [" + self.name + "]" + " [CREATE] Created a Calculator ")
     def sqrt(self,x):
         logging.info(" [" + self.name + "]" + " [SQRT] Getting Square Root of " + str(x))
         return math.sqrt(x)
