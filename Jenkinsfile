@@ -1,29 +1,24 @@
 pipeline {
     environment {
         imagename = "saksham1508/calculator"
-        registryCredential = ""
+        registryCredential = "sakshamDockerHub"
         dockerImage = ''
     }
 
 
-    agent { docker { image 'python:3' } }
+    agent any
     stages {
         stage("Requirements") {
             steps {
                 echo "Building... "
-                withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh '/usr/local/bin/python -m pip install --upgrade pip'
-                    sh '/usr/local/bin/python -m pip install -r requirements.txt'
-                }
+                sh '/usr/bin/python3 -m pip install -r requirements.txt'
+                
             }
         }
         stage('Static Testing') {
             steps {
                 echo "Testing  . . ."
-                withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh '/usr/local/bin/python -m pytest CalcTest.py -s \n\n\n\n\n'
-                }
-                
+                sh '/usr/bin/python3 -m pytest CalcTest.py -s'
             }
         }
         stage("Docker Build") {

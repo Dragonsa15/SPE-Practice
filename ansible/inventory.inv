@@ -1,2 +1,11 @@
 [azure]
-40.81.233.44 ansible_user=saksham
+40.81.233.44
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=saksham
+ansible_ssh_user=saksham
+ansible_pass=saksham
+ansible_ssh_pass=saksham
+ansible_python_interpreter=/usr/bin/python3
+ansible_sudo_pass=saksham
